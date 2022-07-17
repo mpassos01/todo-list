@@ -15,16 +15,6 @@ const criarItem = (tarefa, status, indice) => {
     document.getElementById('todoList').appendChild(item)   
 }
 
-/*const verificação = () => {
-    let input = document.getElementById('newItem')
-    if(input.length == 0) {
-        window.alert('[ERRO] Insira um texto e tente novamente!')
-    }
-}
-
--- Adicionar verificação se o input está vazio
-*/
-
 const limparTarefas = () => {
     const todoList = document.getElementById('todoList')
     while(todoList.firstChild) {
@@ -49,7 +39,9 @@ const inserirItem = (evento) => {
         atualizarTela()
         evento.target.value = ''
     }
-    
+    if(texto == '') {
+        window.alert('Preencha a tarefa!')
+    } //corrigir bug ao adicionar tarefa em branco.
 }
 
 const removerItem = (indice) => {
