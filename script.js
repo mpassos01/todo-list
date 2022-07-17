@@ -39,9 +39,9 @@ const inserirItem = (evento) => {
         atualizarTela();
         evento.target.value = '';
     }
-    if(texto == '') {
+    /*if(texto == '') {
         window.alert('Preencha a tarefa!');
-    } //corrigir bug ao adicionar tarefa em branco.
+    } corrigir bug ao adicionar tarefa em branco.*/
 }
 
 const removerItem = (indice) => {
