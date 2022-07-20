@@ -10,9 +10,11 @@ const criarItem = (tarefa, status, indice) => {
     item.innerHTML = `
     <input type="checkbox" ${status} data-indice = ${indice}>
     <div>${tarefa}</div>
-    <input type="button" value="X" data-indice = ${indice}>
+    <input type="button" value= '🗑️' data-indice = ${indice}>
     `;
     document.getElementById('todoList').appendChild(item);
+    item.style.padding = '15px'
+    item.style.boxShadow = '5px 5px 10px black;'
 }
 
 const limparTarefas = () => {
@@ -32,16 +34,15 @@ const inserirItem = (evento) => {
     const tecla = evento.key;
     const texto = evento.target.value;
     console.log(tecla);
-    if(tecla === 'Enter') {
+    if(tecla === 'Enter' && texto != '') {
         const banco = getBanco();
         banco.push({'tarefa': texto,'status':''});
         setBanco(banco);
         atualizarTela();
-        evento.target.value = '';
+        evento.target.value = '' ;
+    } else if(texto == '' && tecla == 'Enter') {
+        alert('Preencha a tarefa!');
     }
-    /*if(texto == '') {
-        window.alert('Preencha a tarefa!');
-    } corrigir bug ao adicionar tarefa em branco.*/
 }
 
 const removerItem = (indice) => {
